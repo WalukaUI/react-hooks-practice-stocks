@@ -1,11 +1,16 @@
 import React from "react";
 import Stock from "./Stock";
 
-function StockContainer() {
+function StockContainer({stocks,addOrrmvStk}) {
+  const populateStocks=stocks.map((e)=>{if(e.isInMyPortfoliyo===false){ return <Stock 
+    key={e.id}
+     stock={e} 
+     addOrrmvStk={addOrrmvStk}/>}
+    })
   return (
     <div>
       <h2>Stocks</h2>
-      {/* render stock list here*/}
+      {populateStocks}
     </div>
   );
 }
